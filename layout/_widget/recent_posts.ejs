@@ -1,0 +1,16 @@
+<% if (site.posts.length){ %>
+  <div class="card mb-5" >
+    <div class="card-body p-0">
+      <h5 class="card-title p-3">
+        <%= __('recent_posts') %>
+      </h5>
+      <ul class="list-group">
+      <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
+        <li class="list-group-item border-left-0 border-right-0">
+          <a href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+<% } %>

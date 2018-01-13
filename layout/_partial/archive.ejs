@@ -1,0 +1,25 @@
+<% if (pagination == 2){ %>
+  <% page.posts.each(function(post){ %>
+    <%- partial('article', {post: post, index: true}) %>
+  <% }) %>
+<% } else { %>
+  <% var last; %>
+
+  <div class="list-group mb-5">
+  <% page.posts.each(function(post, i){ %>
+    <% var year = post.date.year(); %>
+    <% if (last != year){ %>
+      <% if (last != null){ %>
+      <% } %>
+      <% last = year; %>
+          <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="list-group-item list-group-item-action flex-column align-items-start"><%= year %></a>
+    <% } %>
+    <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+  <% }) %>
+  </div>
+  <% if (page.posts.length){ %>
+  <% } %>
+<% } %>
+<% if (page.total > 1){ %>
+  <%- partial('pagination') %>
+<% } %>

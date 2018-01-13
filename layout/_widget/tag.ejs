@@ -1,0 +1,8 @@
+<% if (site.tags.length){ %>
+  <div class="card mb-5" >
+    <div class="card-body">
+      <h5 class="card-title"><%= __('tags') %></h5>
+        <%- list_tags({show_count: theme.show_count}) %>
+    </div>
+  </div>
+<% } %>

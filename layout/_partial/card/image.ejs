@@ -1,0 +1,3 @@
+<% if (post.photos && post.photos.length || post.cover){ %>
+  <img height="300" class="bg-secondary <%= style || card-img-top %>" src="<%= post.cover || post.photos[0] %>" alt="Card image">
+<% } %>

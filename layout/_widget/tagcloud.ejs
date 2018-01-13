@@ -1,0 +1,8 @@
+<% if (site.tags.length){ %>
+  <div class="card mb-5" >
+    <div class="card-body">
+      <h5 class="card-title"><%= __('tagcloud') %></h5>
+        <%- tagcloud() %>
+    </div>
+  </div>
+<% } %>

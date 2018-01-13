@@ -1,0 +1,8 @@
+<% if (site.posts.length){ %>
+  <div class="card mb-5" >
+    <div class="card-body">
+      <h5 class="card-title"><%= __('archive_a') %></h5>
+        <%- list_archives({show_count: theme.show_count, type: theme.archive_type, style: theme.archive_style, class: 'list-group'}) %>
+    </div>
+  </div>
+<% } %>

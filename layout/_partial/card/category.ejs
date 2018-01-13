@@ -1,0 +1,10 @@
+<% if (post.categories && post.categories.length){ %>
+  <div class="float-left">
+    <%- list_categories(post.categories, {
+      show_count: false,
+      class: 'badge badge-light float-left nav',
+      style: 'none',
+      separator: ''
+    }) %>
+  </div>
+<% } %>

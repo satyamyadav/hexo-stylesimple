@@ -1,0 +1,44 @@
+
+
+  <% if (!!theme.banner){ %>
+    <%- partial('_partial/banner', null, {cache: !config.relative_link}) %>
+  <% } %>
+
+  <section>
+    <div class="<%= theme.container %>">
+      <div class="row">
+
+      <% if (theme.sidebar == 'left'){ %>
+        <div class="<%= theme.sidebarClass %>">
+          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+        </div>
+        <div class="col">
+          <div class="row">
+            <%- partial('_partial/home', {pagination: 2, post: page, index: false}) %>
+
+          </div>
+        </div>
+      <% } %>
+      <% if (theme.sidebar == 'right'){ %>
+        <div class="col pr-md-5">
+          <div class="row">
+            <%- partial('_partial/home', {pagination: 2, post: page, index: false}) %>
+
+          </div>
+        </div>
+        <div class="<%= theme.sidebarClass %>">
+          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+        </div>
+      <% } %>
+      <% if (theme.sidebar == 'none'){ %>
+        <div class="col">
+          <div class="row">
+            <%- partial('_partial/home', {pagination: 2, post: page, index: false}) %>
+
+          </div>
+        </div>
+      <% } %>
+
+      </div>
+    </div>
+  </section>
