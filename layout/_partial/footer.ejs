@@ -1,9 +1,17 @@
-<div class="container">
-  <% if (theme.sidebar === 'bottom'){ %>
-    <%- partial('_partial/sidebar') %>
-  <% } %>
-</div>
-<footer class="footer mt-5 pt-5 pb-5">
+<% if(theme.social) { %> 
+  <div class="container mt-5 pt-5">
+    <nav class="nav nav-pills justify-content-center text-white">
+    <% theme.social.forEach(function(s) { %> 
+      <a class="nav-link p-3 rounded-circle m-1 bg-light" href="<%= s.url %>" target="__blank">
+        <%- s.icon || '' %>
+      </a>
+      <% }) %>
+    </nav>
+  </div>
+<% } %>
+    
+
+<footer class="footer pb-5">
   <hr>
   <div class="container text-muted text-center">
     &copy;

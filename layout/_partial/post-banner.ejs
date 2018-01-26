@@ -1,8 +1,8 @@
 
 
-  <div class="card border-0">
+  <div class="card border-0" style="height:460px">
     <% if (post.photos && post.photos.length || post.cover){ %>
-      <img height="360" class="bg-secondary card-img" src="<%= post.cover || post.photos[0] %>" alt="Card image">
+      <img height="460" class="bg-secondary card-img" src="<%= post.cover || post.photos[0] %>" alt="Card image">
     <% } %>
     <div class="card-img-overlay pt-5" style="background: rgba(0,0,0,0.5)">
       <div class="container text-center">
@@ -15,22 +15,23 @@
           </div>
           <div class="col-12 pt-1 text-white">
             <p class="lead">
-              Posted by
               <i>
               <%= config.author %>
               </i>
-              on <%- partial('card/date', {class_name: 'text-white', date_format: config.date_format || 'MMM Do YY'}) %>
+              <div class="small">
+                <%- partial('card/date', {class_name: 'text-white', date_format: config.date_format || 'MMM Do YY'}) %>
+              </div>
             </p>
 
             <div class="text-center">
               <%- partial('post/category') %>
             </div>
 
-            <div class="text-center pt-4">
+            <div class="text-center pt-2">
               <%- partial('post/tag') %>
             </div>
 
-            <div class="text-center pt-3">
+            <div class="text-center pt-4">
               <div data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link btn btn-primary btn-sm text-uppercase"><%= __('share') %></div>
             </div>
 

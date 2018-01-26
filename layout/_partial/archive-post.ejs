@@ -1,5 +1,20 @@
-<div class="list-group-item">
-  <%- partial('post/title', {class_name: 'archive-article-title'}) %>
-  <%- partial('post/date', {class_name: 'archive-article-date', date_format: 'MMM D'}) %>
+<div class="list-group-item d-flex justify-content-between align-items-center">
+  <% if (post.link){ %>
+    <a class="" href="<%- url_for(post.link) %>" target="_blank" itemprop="url">
+      <%= post.title %>
+    </a>
+    <!-- <h1 itemprop="name"> -->
+  <!-- </h1> -->
+    <% } else { %>
+      <!-- <h1 itemprop="name"> -->
+        <a class="" href="<%- url_for(post.path) %>">
+          <%= post.title %>
+        </a>
+      <!-- </h1> -->
+      <% } %>
+    <span class="badge badge-light">
+      <%- partial('post/date', {class_name: 'archive-article-date', date_format: 'MMM D'}) %>
+    </span>
+
 
 </div>

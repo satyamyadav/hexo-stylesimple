@@ -1,3 +1,10 @@
+
+  <div class="mb-5">
+    <form class="form-inline my-2 my-lg-0">
+      <%- search_form({button: false, class: "form-control-sm w-100 o"}) %>
+    </form>
+  </div>
+  
   <% theme.widgets.forEach(function(widget){ %>
     <%- partial('_widget/' + widget) %>
   <% }) %>
