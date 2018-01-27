@@ -1,9 +1,9 @@
 # Header
 menu:
-  Home: /
-  Portfolio: /projects
-  About: /about
-  Archives: /archives
+  '@root:~#': /
+  '{foo: bar}': /projects
+  README: /about
+  .backup: /archives
 rss: /atom.xml
 
 # Content
@@ -63,3 +63,5 @@ classes:
 icons:
   share: '<img width="22" width="22" src="https://unpkg.com/react-material-icon-svg@1.4.0/svg/share-variant.svg" />'
   comment: '<img width="22" width="22" src="https://unpkg.com/react-material-icon-svg@1.4.0/svg/comment-text-outline.svg" />'
+  github: '<img width="22" width="22" src="https://unpkg.com/simple-icons@latest/icons/github.svg" />'
+  view: '<img width="22" width="22" src="https://unpkg.com/react-material-icon-svg@1.4.0/svg/eye.svg" />'

@@ -1,6 +1,6 @@
----
-layout: layout
----
+
 <div class="pt-5 <%= theme.classes.container %>">
-    <%- page.content %>
+  <% page.posts.forEach(function(project){ %>
+    <%- partial('_partial/project', {project: project}) %>
+  <% }) %>
 </div>
