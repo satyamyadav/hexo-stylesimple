@@ -8,7 +8,6 @@ rss: /atom.xml
 
 # Content
 excerpt_link: Read More
-fancybox: true
 
 widgets:
 # - category
@@ -45,7 +44,6 @@ language: en
 
 # base style css
 style: https://satyamyadav.github.io/stylesimple/dist/material/material.css
-icons: 
 
 # class list 
 
@@ -60,3 +58,8 @@ classes:
   container: 'container'
   sidebar: 'col-12 col-md-3'
   feed: 'col-12 col-md-9'
+
+# icons
+icons:
+  share: '<img width="22" width="22" src="https://unpkg.com/react-material-icon-svg@1.4.0/svg/share-variant.svg" />'
+  comment: '<img width="22" width="22" src="https://unpkg.com/react-material-icon-svg@1.4.0/svg/comment-text-outline.svg" />'

@@ -56,10 +56,18 @@
         '<div id="' + id + '" class="article-share-box dropdown-menu p-0">',
           '<div><input class="article-share-input form-control form-control-sm" value="' + url + '"></div>',
           '<div class="article-share-links btn-group btn-group-sm">',
-            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter btn btn-info" target="_blank" title="Twitter">Twitter</a>',
-            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google btn btn-danger" target="_blank" title="Google+">Google+</a>',
-            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook btn btn-primary" target="_blank" title="Facebook">Facebook</a>',
-            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest btn btn-danger" target="_blank" title="Pinterest">Pinterest</a>',
+            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter btn" target="_blank" title="Twitter">',
+            '<img width="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" />',
+            '</a>',
+            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google btn" target="_blank" title="Google+">',
+            '<img width="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/googleplus.svg" />',
+            '</a>',
+            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook btn" target="_blank" title="Facebook">',
+            '<img width="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" />',
+            '</a>',
+            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest btn" target="_blank" title="Pinterest"> ',
+            '<img width="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/pinterest.svg" />',
+            '</a>',
           '</div>',
         '</div>'
       ].join('');
@@ -72,8 +80,8 @@
     $('.article-share-box.share').hide();
 
     box.css({
-      top: offset.top + 55,
-      left: offset.left - 55
+      top: offset.top + 30,
+      left: offset.left - 210
     }).addClass('show');
   }).on('click', '.article-share-box', function(e){
     e.stopPropagation();
@@ -86,53 +94,6 @@
     window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
   });
 
-  // Caption
-  $('.article-entry').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
 
-      var alt = this.alt;
 
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-
-  if ($.fancybox){
-    $('.fancybox').fancybox();
-  }
-
-  // Mobile nav
-  var $container = $('#container'),
-    isMobileNavAnim = false,
-    mobileNavAnimDuration = 200;
-
-  var startMobileNavAnim = function(){
-    isMobileNavAnim = true;
-  };
-
-  var stopMobileNavAnim = function(){
-    setTimeout(function(){
-      isMobileNavAnim = false;
-    }, mobileNavAnimDuration);
-  }
-
-  $('#main-nav-toggle').on('click', function(){
-    if (isMobileNavAnim) return;
-
-    startMobileNavAnim();
-    $container.toggleClass('mobile-nav-on');
-    stopMobileNavAnim();
-  });
-
-  $('#wrap').on('click', function(){
-    if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
-
-    $container.removeClass('mobile-nav-on');
-  });
 })(jQuery);

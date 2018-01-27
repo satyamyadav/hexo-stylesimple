@@ -32,11 +32,14 @@ var readMoreText = theme.excerpt_link || 'Read more';
         <%- partial('card/category') %>
       </div>
       <div class=" float-right">
-        <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="ml-2 article-share-link float-right"><%= __('share') %>
+        <a title="<%= __('share') %>" data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="ml-2 article-share-link float-right">
+          <%- theme.icons.share %>
         </a>
         <% if (post.comments && config.disqus_shortname){ %>
-          <span class="float-right text-secondary pl-2">|</span>
-          <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link float-right"><%= __('comment') %></a>
+          <!-- <span class="float-right text-secondary pl-2">|</span> -->
+          <a title="<%= __('comment') %>" href="<%- post.permalink %>#disqus_thread" class="article-comment-link float-right">
+            <%- theme.icons.comment %>
+          </a>
         <% } %>
       </div>
     </div>
