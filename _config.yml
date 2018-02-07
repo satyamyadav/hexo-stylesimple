@@ -1,9 +1,9 @@
 # Header
 menu:
-  '@root:~#': /
-  '{foo: bar}': /projects
-  README: /about
-  .backup: /archives
+  HOME: /
+  PROJECTS: /projects
+  ABOUT: /about
+  ARCHIVES: /archives
 rss: /atom.xml
 
 # Content
@@ -24,6 +24,8 @@ archive_style: list
 
 # Miscellaneous
 # google_analytics:
+google_webbaster: '<meta name="google-site-verification" content="N3tLo4DkemKMc6DXU9pIfh9auQjhV7DolwbTGfY_Ejo" />
+'
 # gauges_analytics:
 # favicon: /favicon.png
 # twitter:
@@ -58,6 +60,7 @@ classes:
   container: 'container'
   sidebar: 'col-12 col-md-3'
   feed: 'col-12 col-md-9'
+  nav: 'navbar navbar-expand navbar-light bg-light fixed-top'
 
 # icons
 icons:
