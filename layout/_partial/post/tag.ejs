@@ -1,7 +1,10 @@
+<% var classes = typeof classList !== 'undefined' ? classList : '' %>
+
+
 <% if (post.tags && post.tags.length){ %>
   <%- list_tags(post.tags, {
     show_count: false,
-    class: 'badge badge-light ml-2 o',
+    class: classes + ' tag o',
     style: 'none',
     separator: ''
   }) %>

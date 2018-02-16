@@ -45,19 +45,19 @@ language: en
 
 
 # base style css
-style: https://satyamyadav.github.io/stylesimple/dist/material/material.css
+style: https://satyamyadav.github.io/stylesimple/dist/hexo/hexo.css
 
 # class list 
 
 
 # Sidebar : left | right | none
-sidebar: right
+sidebar: left
 
 # classes 
 #container => bootstrap container : container | container-fluid
 classes:
   postCard: 'border-0 pb-5'
-  container: 'container'
+  container: 'container pl-md-5 pr-md-5'
   sidebar: 'col-12 col-md-3'
   feed: 'col-12 col-md-9'
   nav: 'navbar navbar-expand navbar-light bg-light fixed-top'

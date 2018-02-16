@@ -1,10 +1,9 @@
+<% var classes = typeof classList !== 'undefined' ? classList : '' %>
 <% if (post.categories && post.categories.length){ %>
-  <div class="">
     <%- list_categories(post.categories, {
       show_count: false,
-      class: 'badge badge-info badge-pill m-1  nav',
+      class: classes + ' tag o',
       style: 'none',
       separator: ''
     }) %>
-  </div>
 <% } %>

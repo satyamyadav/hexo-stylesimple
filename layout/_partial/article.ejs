@@ -7,10 +7,10 @@ var readMoreText = theme.excerpt_link || 'Read more';
   <div class="card <%= theme.classes.postCard %>">
     <%- partial('card/image', {style: 'card-img-top'}) %>
     <div class="card-body pl-0 pr-0 blog-post">
+      <%- partial('card/date', {class_name: 'small text-secondary', date_format: config.date_format || 'MMM Do YY'}) %>
       <% if (post.link || post.title){ %>
         <%- partial('card/title', {class_name: 'card-title mb-0'}) %>
       <% } %>
-        <%- partial('card/date', {class_name: 'small text-secondary', date_format: config.date_format || 'MMM Do YY'}) %>
 
         <% if (post.excerpt){ %>
           <div class="card-text pr-1 pl-1 pt-3 text-secondary">
