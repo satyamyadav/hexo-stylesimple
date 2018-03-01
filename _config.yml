@@ -51,7 +51,7 @@ style: https://satyamyadav.github.io/stylesimple/dist/hexo/hexo.css
 
 
 # Sidebar : left | right | none
-sidebar: left
+sidebar: none
 
 # classes 
 #container => bootstrap container : container | container-fluid
