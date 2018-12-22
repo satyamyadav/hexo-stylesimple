@@ -1,8 +1,11 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+
 
 module.exports = {
   mode: "production", // "production" | "development" | "none"  // Chosen mode tells webpack to use its built-in optimizations accordingly.
-  entry: "./webpack/sass/hexo", // string | object | array  // defaults to './src'
+  entry: { hexo: "./webpack/sass/hexo" }, // string | object | array  // defaults to './src'
   // Here the application starts executing
   // and webpack starts bundling
   output: {
@@ -10,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, "../source"), // string
     // the target directory for all output files
     // must be an absolute path (use the Node.js path module)
-    filename: '[name].bundle.js',
+    filename: 'js/[name].js',
     publicPath: "/", // string    // the url to the output directory resolved relative to the HTML page
     library: "MyLibrary", // string,
     // the name of the exported library
@@ -21,15 +24,23 @@ module.exports = {
     // configuration regarding modules
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          "style-loader", // creates style nodes from JS strings
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here
+              // by default it use publicPath in webpackOptions.output
+              publicPath: '../css'
+            }
+          },
+          // "style-loader", // creates style nodes from JS strings
           "css-loader", // translates CSS into CommonJS
           "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
       },
       // rules for modules (configure loaders, parser options, etc.)
-      
+
     ],
     /* Advanced module configuration (click to show) */
   },
@@ -57,13 +68,36 @@ module.exports = {
   // lets you provide options for webpack-serve
   stats: "errors-only",  // lets you precisely control what bundle information gets displayed
   plugins: [
-    // ...
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "css/[name].css",
+      chunkFilename: "css/[id].css"
+    })
   ],
   // list of additional plugins
   /* Advanced configuration (click to show) */
-   optimization: {
-     splitChunks: {
-       chunks: 'all'
-     }
-   },
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '-',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  },
 }
