@@ -1,5 +1,5 @@
 <nav class="<%= theme.classes.nav %>">
-  <div class="<%= theme.classes.container %> pl-0" >
+  <div class="container pl-2" >
 
     <% if(config.logo) { %>
       <a class="navbar-brand" href="<%- url_for() %>" id="logo">
@@ -7,7 +7,7 @@
       </a>
       <% } %>
       
-      <ul class="navbar-nav m-auto">
+      <ul class="navbar-nav">
         <% for (var i in theme.menu){ %>
           <li class="nav-item <%= url.indexOf(theme.menu[i]) >= 0 ? 'active' : '' %>">
             <a class="nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>

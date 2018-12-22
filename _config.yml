@@ -7,7 +7,7 @@ menu:
 rss: /atom.xml
 
 # Content
-excerpt_link: Read More
+excerpt_link: Continue reading
 
 widgets:
 # - category
@@ -45,22 +45,26 @@ language: en
 
 
 # base style css
-style: https://satyamyadav.github.io/stylesimple/dist/hexo/hexo.css
+style: css/hexo
 
 # class list 
 
 
 # Sidebar : left | right | none
-sidebar: none
+sidebar: right
+
+# Sidebar : left | right | none
+profile: true
 
 # classes 
 #container => bootstrap container : container | container-fluid
 classes:
-  postCard: 'border-0 pb-5'
-  container: 'container pl-md-5 pr-md-5'
-  sidebar: 'col-12 col-md-3'
-  feed: 'col-12 col-md-9'
-  nav: 'navbar navbar-expand navbar-light bg-light fixed-top'
+  postCard: 'pb-5'
+  container: 'container pt-5'
+  sidebar: 'col-12 col-md-4 pl-md-5'
+  feed: 'col-12 col-md-8 pr-md-3'
+  nav: 'navbar navbar-expand navbar-light bg-light fixed-top bg-white shadow-sm'
+  profile: 'pb-5'
 
 # icons
 icons:
@@ -68,3 +72,8 @@ icons:
   comment: '<img width="22" width="22" src="https://unpkg.com/react-material-icon-svg@1.4.0/svg/comment-text-outline.svg" />'
   github: '<img width="22" width="22" src="https://unpkg.com/simple-icons@latest/icons/github.svg" />'
   view: '<img width="22" width="22" src="https://unpkg.com/react-material-icon-svg@1.4.0/svg/eye.svg" />'
+
+profileDetails:
+  name: 'Satyam Yadav'
+  bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum imperdiet massa at dignissim gravida. Vivamus vestibulum odio eget eros accumsan, ut dignissim sapien gravida. Vivamus eu sem vitae dui.'
+  avatar: 'https://d1qb2nb5cznatu.cloudfront.net/users/841089-large?1531667436'

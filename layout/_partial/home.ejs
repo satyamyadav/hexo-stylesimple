@@ -1,10 +1,26 @@
+
+<%
+var getImage = ({cover, photos}) => {
+  if(cover && cover.length) {
+    return cover;
+  }
+  if(photos && photos.length) {
+    return photos[0];
+  }
+  return `http://lorempixel.com/400/200/technics/${Math.random().toString(36).substring(7)}`
+}
+%>
+
 <% if (pagination == 2){ %>
-  <% page.posts.each(function(post){ %>
-    <%- partial('article', {post: post, index: true}) %>
+  <% page.posts.each(function(post, postIndex){ %>
+    <% post.cover = getImage(post) %>
+    <%- partial('article', {post: post, index: true, postIndex}) %>
   <% }) %>
 <% } else { %>
   <% var last; %>
   <% page.posts.each(function(post, i){ %>
+    <% post.cover = getImage(post) %>
+
     <% var year = post.date.year(); %>
     <% if (last != year){ %>
       <% last = year; %>

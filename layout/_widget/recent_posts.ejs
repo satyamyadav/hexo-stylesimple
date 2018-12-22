@@ -1,16 +1,27 @@
 <% if (site.posts.length){ %>
-  <div class="card mb-5" >
-    <div class="card-body p-0">
-      <h5 class="card-title p-3">
+  <div class="mb-5" >
+    <div class="">
+      <h4 class="">
         <%= __('recent_posts') %>
-      </h5>
-      <ul class="list-group">
+      </h4>
+      <ul class="list-group list-group-flush mt-3">
       <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
-        <li class="list-group-item border-left-0 border-right-0">
-          <a href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
+        <li class="list-group-item border-0 pl-0 pr-0 bg-transparent">
+          <a href="<%- url_for(post.path) %>">
+
+            <img height="64" width="64" class="bg-secondary rounded float-left mr-3" src="<%= post.cover || post.photos[0] %>" alt="">
+            <%= post.title || '(no title)' %>
+          </a>
+          <div class="small">
+            <%- partial('_partial/card/date', {post, class_name: 'text-secondary', date_format: config.date_format || 'MMM Do YY'}) %>
+
+          </div>
+
         </li>
         <% }) %>
       </ul>
+
+
     </div>
   </div>
 <% } %>

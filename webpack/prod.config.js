@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const webpack = require('webpack');
 
 
 module.exports = {
@@ -15,9 +15,9 @@ module.exports = {
     // must be an absolute path (use the Node.js path module)
     filename: 'js/[name].js',
     publicPath: "/", // string    // the url to the output directory resolved relative to the HTML page
-    library: "MyLibrary", // string,
+    // library: "MyLibrary", // string,
     // the name of the exported library
-    libraryTarget: "umd", // universal module definition    // the type of the exported library
+    // libraryTarget: "umd", // universal module definition    // the type of the exported library
     /* Advanced output configuration (click to show) */
   },
   module: {
@@ -40,7 +40,16 @@ module.exports = {
         ]
       },
       // rules for modules (configure loaders, parser options, etc.)
-
+      {
+        test: require.resolve('jquery'),
+        use: [{
+          loader: 'expose-loader',
+          options: 'jQuery'
+        }, {
+          loader: 'expose-loader',
+          options: '$'
+        }]
+      }
     ],
     /* Advanced module configuration (click to show) */
   },
@@ -73,6 +82,11 @@ module.exports = {
       // both options are optional
       filename: "css/[name].css",
       chunkFilename: "css/[id].css"
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
     })
   ],
   // list of additional plugins
@@ -81,23 +95,30 @@ module.exports = {
     splitChunks: {
       chunks: 'async',
       minSize: 30000,
-      maxSize: 0,
-      minChunks: 1,
+      minChunks: 3,
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
       automaticNameDelimiter: '-',
       name: true,
       cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10
+        commons: {
+          test: /[\\/]node_modules[\\/](jquery|popper.js)[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
         },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/]/,
+        //   priority: -10
+        // },
+        // default: {
+        //   minChunks: 2,
+        //   priority: -20,
+        //   reuseExistingChunk: true
+        // }
       }
     }
   },
+  // externals: {
+  //   jquery: 'jQuery'
+  // }
 }

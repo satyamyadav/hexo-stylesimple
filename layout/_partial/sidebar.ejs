@@ -1,3 +1,9 @@
+<% if (theme.profile){ %>
+  <div class="<%= theme.classes.profile || '' %>">
+    <%- partial('_partial/profile', null, {cache: !config.relative_link}) %>
+  </div>
+<% } %>
+
 
   <div class="mb-5" id="search-form-wrap">
     <form class="form-inline my-2 my-lg-0" action="//google.com/search" method="get" accept-charset="UTF-8">

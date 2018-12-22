@@ -1,49 +1,35 @@
 <%
 var readMoreUrl = url_for(post.path);
-var readMoreText = theme.excerpt_link || 'Read more';
+var readMoreText = theme.excerpt_link || 'Continue reading';
+var exTop = (post.photos && post.photos.length || post.cover) ? 'pt-3' : '';
+var cardClass = postIndex == 0 ? 'card p-3 border-0 pb-2 mb-3' : '' 
 %>
 
 <article id="<%= post.layout %>-<%= post.slug %>" class="col-12 mb-3 article-type-<%= post.layout %>" itemscope itemprop="blogPost">
-  <div class="card <%= theme.classes.postCard %>">
-    <%- partial('card/image', {style: 'card-img-top'}) %>
-    <div class="card-body pl-0 pr-0 blog-post">
-      <%- partial('card/date', {class_name: 'small text-secondary', date_format: config.date_format || 'MMM Do YY'}) %>
+  <div class="<%= theme.classes.postCard %> <%= cardClass %>">
       <% if (post.link || post.title){ %>
         <%- partial('card/title', {class_name: 'card-title mb-0'}) %>
-      <% } %>
-
+        <% } %>
+        
+        <div class="pb-3">
+          <%- partial('card/date', {class_name: 'text-secondary', date_format: config.date_format || 'MMM Do YY'}) %>
+        </div>
+        
+        <%- partial('card/image', {style: 'card-img-top'}) %>
         <% if (post.excerpt){ %>
-          <div class="card-text pr-1 pl-1 pt-3 text-secondary">
+          <div class="card-text <%= exTop %>">
             <%- post.excerpt %>
             <% readMoreUrl = readMoreUrl + '#more' %>
-            <a href="<%- readMoreUrl %>">
+            <a class="text-danger" href="<%- readMoreUrl %>">
               <%= readMoreText %>
             </a>
           </div>
         <% } else { %>
-          <a href="<%- readMoreUrl %>">
+          <a class="text-danger" href="<%- readMoreUrl %>">
             <%= readMoreText %>
           </a>
         <% }  %>
-    </div>
-    <div class="article-footer border-0 row m-0">
-      <div class="col pl-0">
-        <%- partial('card/tag') %>
-        <%- partial('card/category') %>
-      </div>
-      <div class=" float-right">
-        <a title="<%= __('share') %>" data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="ml-2 article-share-link float-right">
-          <%- theme.icons.share %>
-        </a>
-        <% if (post.comments && config.disqus_shortname){ %>
-          <!-- <span class="float-right text-secondary pl-2">|</span> -->
-          <a title="<%= __('comment') %>" href="<%- post.permalink %>#disqus_thread" class="article-comment-link float-right">
-            <%- theme.icons.comment %>
-          </a>
-        <% } %>
-      </div>
-    </div>
-    <hr>
+    
 </div>
 </article>
 
