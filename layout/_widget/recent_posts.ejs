@@ -9,8 +9,9 @@
         <li class="list-group-item border-0 pl-0 pr-0 bg-transparent">
           <a href="<%- url_for(post.path) %>">
 
-            <img height="64" width="64" class="bg-secondary rounded float-left mr-3" src="<%= post.cover || post.photos[0] %>" alt="">
-            <%= post.title || '(no title)' %>
+            <img height="80" width="80" class="bg-light rounded float-left mr-3" src="<%= post.cover || post.photos[0] %>" alt="">
+            <%- truncate(post.title || '(no title)', {length: 45}) %>
+
           </a>
           <div class="small">
             <%- partial('_partial/card/date', {post, class_name: 'text-secondary', date_format: config.date_format || 'MMM Do YY'}) %>

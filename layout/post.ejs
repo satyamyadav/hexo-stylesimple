@@ -1,17 +1,46 @@
 
-  <section class="pb-5">
+  <section class="">
     <%- partial('_partial/post-banner', {post: page}) %>
   </section>
 
-  <section>
+  <section class="pt-5 bg-default">
     <div class="<%= theme.classes.container %>">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-10 pb-5">
-          <div class="row">
-            <%- partial('_partial/post', {pagination: 2, post: page, index: false}) %>
+      <div class="row">
+  
+        <% if (theme.sidebar == 'left'){ %>
+          <div class="<%= theme.classes.sidebar %>">
+            <%- partial('_partial/post-sidebar', null, {cache: !config.relative_link}) %>
           </div>
+          <div class="<%= theme.classes.feed %>">
+            <div class="row">
+            <%- partial('_partial/post', {pagination: 2, post: page, index: false}) %>
+  
+            </div>
+          </div>
+        <% } %>
+        <% if (theme.sidebar == 'right'){ %>
+          <div class="<%= theme.classes.feed %>">
+            <div class="row">
+            <%- partial('_partial/post', {pagination: 2, post: page, index: false}) %>
+  
+            </div>
+          </div>
+          <div class="<%= theme.classes.sidebar %>">
+            <%- partial('_partial/post-sidebar', null, {cache: !config.relative_link}) %>
+          </div>
+        <% } %>
+        <% if (theme.sidebar == 'none'){ %>
+          <div class="col">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-10">
+                <div class="row">
+                <%- partial('_partial/post', {pagination: 2, post: page, index: false}) %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% } %>
+  
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>

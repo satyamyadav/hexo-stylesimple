@@ -61,9 +61,9 @@ profile: true
 classes:
   postCard: 'pb-5'
   container: 'container pt-5'
-  sidebar: 'col-12 col-md-4 pl-md-5'
+  sidebar: 'col-12 col-md-4 pl-md-6'
   feed: 'col-12 col-md-8 pr-md-3'
-  nav: 'navbar navbar-expand navbar-light bg-light fixed-top bg-white shadow-sm'
+  nav: 'navbar navbar-expand fixed-top bg-white shadow-sm pt-3'
   profile: 'pb-5'
 
 # icons
@@ -75,5 +75,5 @@ icons:
 
 profileDetails:
   name: 'Satyam Yadav'
-  bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum imperdiet massa at dignissim gravida. Vivamus vestibulum odio eget eros accumsan, ut dignissim sapien gravida. Vivamus eu sem vitae dui.'
-  avatar: 'https://d1qb2nb5cznatu.cloudfront.net/users/841089-large?1531667436'
+  bio: 'Self learner, love linux, Foss and code. <br> " learning should be free and open " <br>"Love to draw"'
+  avatar: '/img/profile.jpg'

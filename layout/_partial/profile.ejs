@@ -5,7 +5,7 @@ const {name, bio, avatar} = theme.profileDetails;
 
 <div class="">
   <div class="">
-    <img class="bg-secondary img-fluid w-100" style="min-height: 300px;" src="<%= avatar %>" alt="<%= name %> avatar">
+    <img class="bg-light card-img img-fluid w-100" style="min-height: 372px;" src="<%= avatar %>" alt="<%= name %> avatar">
     
   </div>
   <h3 class="mt-3">
@@ -13,7 +13,7 @@ const {name, bio, avatar} = theme.profileDetails;
   </h3>
   <div class="pt-2">
     <p class="text-secondary">
-      <%= bio %>
+      <%- bio %>
     </p>
   </div>
 </div>
