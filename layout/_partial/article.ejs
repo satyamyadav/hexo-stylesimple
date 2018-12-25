@@ -2,7 +2,7 @@
 var readMoreUrl = url_for(post.path);
 var readMoreText = theme.excerpt_link || 'Continue reading';
 var exTop = (post.photos && post.photos.length || post.cover) ? 'pt-3' : '';
-var cardClass = postIndex == 0 ? 'border-0 card mb-3 ml-md-n5 mr-md-n5 p-5' : '' 
+var cardClass = postIndex == 0 ? 'border-0 card mb-3 ml-md-n5 mr-md-n5 p-md-5 p-2' : '' 
 %>
 
 <article id="<%= post.layout %>-<%= post.slug %>" class="col-12 mb-3 article-type-<%= post.layout %>" itemscope itemprop="blogPost">

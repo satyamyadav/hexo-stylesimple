@@ -1,5 +1,5 @@
 <% if(theme.social) { %> 
-  <div class="container mt-5 pt-5">
+  <div class="container pt-5">
     <nav class="nav nav-pills justify-content-center text-white">
     <% theme.social.forEach(function(s) { %> 
       <a class="nav-link p-3 rounded-circle m-1 bg-light" href="<%= s.url %>" target="__blank">
@@ -12,11 +12,10 @@
     
 
 <footer class="footer pb-5">
-  <hr>
-  <div class="container text-muted text-center">
+  <div class="container text-muted text-center pt-3">
     &copy;
     <%= date(new Date(), 'YYYY') %>
-    <%= config.author || config.title %><br>
+    <%= config.author || config.title %>
     <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>
 
   </div>

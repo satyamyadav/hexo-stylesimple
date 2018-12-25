@@ -19,17 +19,23 @@
         <img class="" height="50" src="<%= config.logo  %>" alt="">
       </a>
       <% } %>
-      
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav ml-auto">
         <% for (var i in theme.menu){ %>
           <li class="nav-item <%= getActiveClass(theme.menu[i]) %>">
             <a class="nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
           </li>
           <% } %>
-        </ul>
-        <% if (theme.rss){ %>
-          <a id="nav-rss-link" class="navbar-text" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>"></a>
-        <% } %>
+      </ul>
+      </div>
+
+      <% if (theme.rss){ %>
+        <a id="nav-rss-link" class="navbar-text" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>"></a>
+      <% } %>
           
   </div>
 </nav>

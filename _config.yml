@@ -60,10 +60,10 @@ profile: true
 #container => bootstrap container : container | container-fluid
 classes:
   postCard: 'pb-5'
-  container: 'container pt-5'
+  container: 'container pt-md-5'
   sidebar: 'col-12 col-md-4 pl-md-6'
   feed: 'col-12 col-md-8 pr-md-3'
-  nav: 'navbar navbar-expand fixed-top bg-white shadow-sm pt-3'
+  nav: 'navbar navbar-expand-lg fixed-top bg-white shadow-sm pt-3'
   profile: 'pb-5'
 
 # icons
